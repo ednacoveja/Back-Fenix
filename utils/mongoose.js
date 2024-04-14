@@ -4,7 +4,7 @@ config()
 const MONGODB = process.env.MONGODB_URI
 
 
-export async function connectToDB(){
+async function connectToDB(){
   try{
       await mongoose.connect(MONGODB )
       console.log("MongoDB conectado")
@@ -13,3 +13,5 @@ export async function connectToDB(){
     console.error(error)
   }
 }
+
+module.exports = { connectToDB };

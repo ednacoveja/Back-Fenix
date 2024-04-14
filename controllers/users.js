@@ -3,7 +3,7 @@ const { uploadImageEmprendimiento, deleteImage } = require("../utils/cloudinary.
 const fs = require( "fs-extra")
 
 
-export const getUsers = async (req, res) => {
+const getUsers = async (req, res) => {
   try {
     const { nombre } = req.query;
 
@@ -25,7 +25,7 @@ export const getUsers = async (req, res) => {
   }
 };
 
-export const getUserId = async (req, res) => {
+const getUserId = async (req, res) => {
   try {
     const userId = await User.findById(req.params.id)
     if (!userId) return res.satus(404).json({
@@ -39,7 +39,7 @@ export const getUserId = async (req, res) => {
 
 }
 
-export const createUser = async (req, res) => {
+const createUser = async (req, res) => {
   try {
     const { nombre, instagram, description } = req.body;
     const newUser = new User({
@@ -63,7 +63,7 @@ export const createUser = async (req, res) => {
   }
 }
 
-export const updateUser = async (req, res) => {
+const updateUser = async (req, res) => {
   try {
     const { id } = req.params;
     const user = await User.findByIdAndUpdate(id,req.body, {
@@ -80,7 +80,7 @@ export const updateUser = async (req, res) => {
   }
 };
 
-export const deleteUser = async (req, res) => {
+const deleteUser = async (req, res) => {
   try {
     const userDelete = await User.findByIdAndDelete(req.params.id)
 
@@ -97,3 +97,11 @@ export const deleteUser = async (req, res) => {
     return res.status(500).json({ message: error.message })
   }
 }
+
+module.exports = {
+  getUsers,
+  getUserId,
+  createUser,
+  updateUser,
+  deleteUser
+};

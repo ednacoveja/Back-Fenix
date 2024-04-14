@@ -3,7 +3,7 @@ const { uploadImageProducts, deleteImage } =require("../utils/cloudinary.js")
 const fs =require("fs-extra")  
 
 
-export const getProducts = async (req, res) => {
+const getProducts = async (req, res) => {
   try {
     const products = await Product.find()
       .sort({ createdAt: -1 })
@@ -15,7 +15,7 @@ export const getProducts = async (req, res) => {
 
 }
 
-export const getProductId = async (req, res) => {
+const getProductId = async (req, res) => {
   try {
     const productId = await Product.findById(req.params.id)
     if (!productId) return res.satus(404).json({
@@ -29,7 +29,7 @@ export const getProductId = async (req, res) => {
 
 }
 
-export const createProducts = async (req, res) => {
+const createProducts = async (req, res) => {
   try {
     const { name, description, price, type, cantidad, emprendimiento } = req.body
     const newProduct = new Product({
@@ -57,7 +57,7 @@ export const createProducts = async (req, res) => {
 
 }
 
-export const updateProducts = async (req, res) => {
+const updateProducts = async (req, res) => {
   try {
     const { id } = req.params
     const productUpdated = await Product.findByIdAndUpdate(id, req.body, {
@@ -71,7 +71,7 @@ export const updateProducts = async (req, res) => {
 }
 
 
-export const deleteProducts = async (req, res) => {
+const deleteProducts = async (req, res) => {
   try {
     const productDelete = await Product.findByIdAndDelete(req.params.id)
 
@@ -87,3 +87,11 @@ export const deleteProducts = async (req, res) => {
     return res.status(500).json({ message: error.message })
   }
 }
+
+module.exports = {
+  getProducts,
+  getProductId,
+  createProducts,
+  updateProducts,
+  deleteProducts
+};
