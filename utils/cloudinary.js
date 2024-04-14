@@ -1,6 +1,6 @@
-import { v2 as cloudinary } from "cloudinary"
+const cloudinary= require("cloudinary").v2
 //const {CLOUD_NAME,API_KEY,API_SECRET} = process.env['CLOUD_NAME',"API_KEY","API_SECRET"]
-import {config} from "dotenv"
+const {config} = require("dotenv") 
 config()
 const CLOUD_NAME = process.env.CLOUD_NAME
 const API_KEY = process.env.API_KEY

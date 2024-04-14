@@ -1,12 +1,12 @@
-import { Router } from "express"
-import {
+const { Router } = require("express") 
+const {
   getProducts,
   getProductId,
   createProducts,
   updateProducts,
   deleteProducts
-} from "../controllers/products.js"
-import fileUpload from "express-fileupload"
+} = require("../controllers/products.js") 
+const fileUpload = require( "express-fileupload")
 
 const router = Router()
 
@@ -19,4 +19,4 @@ router.post("/products", fileUpload({
 router.put("/products/:id", updateProducts)
 router.delete("/products/:id", deleteProducts)
 
-export default router
+module.exports=router

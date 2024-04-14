@@ -1,12 +1,12 @@
-import { Router } from "express"
-import {
+const { Router } =require("express") 
+const {
   getUsers,
   getUserId,
   createUser,
   updateUser,
   deleteUser
-} from "../controllers/users.js"
-import fileUpload from "express-fileupload"
+} =require( "../controllers/users.js")
+const fileUpload =require("express-fileupload") 
 
 
 const router = Router()
@@ -20,4 +20,4 @@ router.post("/users",fileUpload({
 router.put("/users/:id", updateUser)
 router.delete("/users/:id", deleteUser)
 
-export default router
+module.exports=router

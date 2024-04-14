@@ -1,6 +1,6 @@
-import User from "../models/User.js"
-import { uploadImageEmprendimiento, deleteImage } from "../utils/cloudinary.js"
-import fs from "fs-extra"
+const User = require("../models/User.js") 
+const { uploadImageEmprendimiento, deleteImage } = require("../utils/cloudinary.js") 
+const fs = require( "fs-extra")
 
 
 export const getUsers = async (req, res) => {

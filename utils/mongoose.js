@@ -1,5 +1,5 @@
-import mongoose from "mongoose"
-import {config} from "dotenv"
+const mongoose = require("mongoose") 
+const {config} = require("dotenv") 
 config()
 const MONGODB = process.env.MONGODB_URI
 

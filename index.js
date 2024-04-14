@@ -1,5 +1,5 @@
-import app from "./app.js"
-import { connectToDB } from "./utils/mongoose.js"
+const app =require("./app.js")
+const { connectToDB } =require( "./utils/mongoose.js")
 
 
 async function main() {

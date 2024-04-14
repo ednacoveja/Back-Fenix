@@ -1,6 +1,6 @@
-import Product from "../models/Product.js"
-import { uploadImageProducts, deleteImage } from "../utils/cloudinary.js"
-import fs from "fs-extra"
+const Product =require("../models/Product.js") 
+const { uploadImageProducts, deleteImage } =require("../utils/cloudinary.js")
+const fs =require("fs-extra")  
 
 
 export const getProducts = async (req, res) => {

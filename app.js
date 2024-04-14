@@ -1,18 +1,18 @@
-import express from "express"
-import morgan from "morgan"
-import cors from "cors"
-import products from "./routes/products.js"
-import users from "./routes/users.js"
+const express = require( "express")
+const morgan = require("morgan") 
+const cors = require("cors") 
+const products = require("./routes/products.js") 
+const users = require("./routes/users.js") 
 
 
 const app = express()
 
 app.use(cors());
-app.use(morgan("dev"))
-app.use(express.json())
-app.use(products)
-app.use(users)
+app.use(morgan("dev"));
+app.use(express.json());
+app.use(products);
+app.use(users);
 
 
 
-export default app
+module.exports= app
